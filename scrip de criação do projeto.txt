@@ -1,0 +1,83 @@
+yarn init -y
+yarn add express
+npm add -D @types/express typescript ts-node-dev 
+
+### Criar pasta src
+-> app.ts
+
+### criar o arquivo de confg do TS
+-> yarn tsc --init
+
+alterar tsconfig.json:
+{
+  "compilerOptions": {
+    
+    "target": "es2020",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "module": "commonjs",                                /* Specify what module code is generated. */
+    "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
+    "strict": false,                                      /* Enable all strict type-checking options. */
+    "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+  }
+}
+
+
+-------------------------------------------------------
+
+### criar o scrip de no package.json
+"scripts": {
+    "dev": "ts-nod-dev src/app.ts"
+    
+  },
+
+### rodando o projeto 
+yarn dev
+
+### Alterar o arquivo schema.prisma
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+
+#####  Configurar o login com github  #########
+https://github.com/settings/developers
+app craida:
+NLW Heat Node
+Client secret gerada:
+c518311470f10449775daed82cb29497ac5e042a
+
+### Alterar o arquivo .ENV
+GITHUB_CLIENT_SECRET=c518311470f10449775daed82cb29497ac5e042a
+GITHUB_CLIENT_ID=12446a7e54c103bcb5f7
+
+### instalar o dotenv
+yarn add dotenv
+
+### Criar rota de login e callback do github
+app.get("/github", (request, response) =>{
+  response.redirect(
+    `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}`
+  )
+})
+
+### acessar aplicação: 
+http://localhost:4000/github
+
+### instalar o axios para fazer chamadas externas no git
+yarn add axios
+yarn add @types/axios -D
+
+
+
+
+
+###  Criação da estrutura do banco com Prisma ####
+-> yarn add prisma -D
+-> yarn prisma init
+
+### criação das tabelas após configurar a model
+
+npx prisma migrate dev
+### ver as tabelas no navegador
+npx prisma studio
