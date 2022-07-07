@@ -53,6 +53,9 @@ GITHUB_CLIENT_ID=12446a7e54c103bcb5f7
 
 ### instalar o dotenv
 yarn add dotenv
+yarn add jsonwebtoken
+yarn add @types/jsonwebtoken
+
 
 ### Criar rota de login e callback do github
 app.get("/github", (request, response) =>{
@@ -77,7 +80,22 @@ yarn add @types/axios -D
 -> yarn prisma init
 
 ### criação das tabelas após configurar a model
+model User {
+  id         String @id @default(uuid())
+  name       String
+  github_id  Int
+  avatar_url String
+  login      String
 
-npx prisma migrate dev
+  @@map("users")
+}
+
+yarn prisma migrate dev
 ### ver as tabelas no navegador
 npx prisma studio
+
+
+
+3a5e3448258c85dd186c8104d104d8d2
+3a5e3448258c85dd186c8104d104d8d2
+abec5d3aa102f5804437475bc75877b5
