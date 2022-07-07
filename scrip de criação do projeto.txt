@@ -92,7 +92,11 @@ model User {
 
 yarn prisma migrate dev
 ### ver as tabelas no navegador
-npx prisma studio
+yarn prisma studio
+
+### Instalar o socket.io para fazer a comunicação entre o client e o server
+yarn add socket.io
+yarn add @types/socket.io -D
 
 
 
