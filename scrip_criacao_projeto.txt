@@ -5,7 +5,7 @@ npm add -D @types/express typescript ts-node-dev
 ### Criar pasta src
 -> app.ts
 
-### criar o arquivo de confg do TS
+### criar o arquivo de config do TS
 -> yarn tsc --init
 
 alterar tsconfig.json:
@@ -42,7 +42,7 @@ datasource db {
 
 #####  Configurar o login com github  #########
 https://github.com/settings/developers
-app craida:
+app criada:
 NLW Heat Node
 Client secret gerada:
 c518311470f10449775daed82cb29497ac5e042a
@@ -97,6 +97,11 @@ yarn prisma studio
 ### Instalar o socket.io para fazer a comunicação entre o client e o server
 yarn add socket.io
 yarn add @types/socket.io -D
+
+### Install cors and dependencies
+yarn add cors
+yarn add @types/cors -D
+
 
 
 
